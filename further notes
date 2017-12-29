@@ -1,0 +1,8 @@
+
+* branches are labels
+* master is the main branch
+* head is the commit that you are currently in
+* "detached head" means looking at a commit that wasnt labeled with a branch name
+* each commit stores a reference of its parent commit
+* after fixing a merge conflict, you still need to add the conflict fixes and then commit it to conclude the merge
+* you could use git checkout branch_name to checkout a remote branch created by other collaborators. 
