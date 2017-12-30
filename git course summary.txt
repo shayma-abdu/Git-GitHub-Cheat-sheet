@@ -1,8 +1,10 @@
 * git log
 * git log -n x where x is the number of commits to be shown
 To stop viewing git log output, press q (which stands for quit).
-*git diff commit_id commit_id
+
 *git log --stat
+*git log branch_name 
+*git diff commit_id commit_id
 *git clone followed by a space and the repository URL
 *git config --global color.ui auto To get colored diff output, run 
 *git checkout commit_id
@@ -17,6 +19,7 @@ To stop viewing git log output, press q (which stands for quit).
 * git commit -m "commit message"
 * git diff  to compare changes between working directory and staging area
 * git diff --staged to compare changes between staging area and the most recent commit in the repository
+* git diff branch_1 branch_2 ex: git diff origin/master master
 * git reset --hard which discards any changes in either the working directory or the staging area. this is not reversable. 
 * git checkout branch_name
 * git branch which shows current branches
@@ -31,23 +34,14 @@ To stop viewing git log output, press q (which stands for quit).
 * git config --global core.autocrlf ture to manage conflicts in newline characters betweeen windows and unix systems. 
 * git config --global credential.helper wincred to store credential when interacting github
 * git branch -d branch_name which deletes a branch label
+* git branch -a ?
 * git remote to view remote repositories (remotes)
-* git remote add repository name repository_url to create a remote label to a remote repository. its standard to name the remote origin if it is only one remote.
+* git remote add remote_name repository_url to create a remote label to a remote repository. its standard to name the remote origin if it is only one remote.
 * git remote -v to view more information about remotes
-* git push
-
-
-
-
-
-notes:
-* branches are labels
-* master is the main branch
-* head is the commit that you are currently in
-* "detached head" means looking at a commit that wasnt labeled with a branch name
-* each commit stores a reference of its parent commit
-* after fixing a merge conflict, you still need to add the conflict fixes and then commit it to conclude the merge
-* you could use git checkout branch_name to checkout a remote branch created by other collaborators. 
+* git push remote_name branch_name to push changes introduced in the branch to the remote repository. 
+* git fetch remote_name to only update the local copies of every branch for the remote repository.
+* git pull remote_name branch_name to pull changes from the specified branch on the remote repository.
+* git pull orgin master equals to git fetch origin then git merge master origin/master
 
 intersctive shell, framework, library, texteditor
 

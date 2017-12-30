@@ -6,3 +6,30 @@
 * each commit stores a reference of its parent commit
 * after fixing a merge conflict, you still need to add the conflict fixes and then commit it to conclude the merge
 * you could use git checkout branch_name to checkout a remote branch created by other collaborators. 
+* forking is just cloning on github
+* when you clone from a repository, git automatically creates a remote that points to the repository you cloned from
+* git stores local copies of the last know n positions of all the remote branches. each will contain the state of the remote branch as of the last time the branch ws pushed or pulled. the name of the branch is the name of the remote followed by a slash and the name of the branch in the remote repository. ex: origin/master
+* fast forward merges happen when we are merging two commits where one commit is the ancestor of the other. one commit is reachable by the other.
+* workflow to get feedback on changes on a project before updating master branch:
+	- make change locally on a seperate branch, by git branch new_branch_nme
+	- git checkout new_branch_name
+	- git add change.java
+	- git commit
+	- push that change to the fork (github repository), git push origin new_branch_name
+	- pull request, navigate on github to new_branch_name, and click on pull request, and specify which branch and repository you want to merge with by specifying base fork 
+	- if there are no conflicts, the collaborator can merge the pull request.
+* push command automatically updates any corresponding pull requests 
+* merging button on github always make merge commit, even in the case where fast forward merges are possible
+* in the case of a conflict when doing a pull request on a branch, in a collaborative environment its often only acceptable to make changes to master through pull requests, so the following needs to be done:
+	- pull master locally, git pull origin master
+	- git checkout branch
+	- merge master into the branch, while resolving conflicts (add then commit)
+	- push the branch up to github
+	- which then updates the pull request, to be looked at by a collaborator before merging into master on github
+* remote that points to the original remote repository on github that you made a fork from, is usually named upstream
+* update/resolve a cross-repository pull request, in the case where there is a conflict between change branch and master in original repository where we forked from, hence pull request cannot be completed.
+	- add the original repository as a remote in local clone, by git remote add upstream repository_url
+	- pull the master branch from the original repository into the local clone master, by git checkout master, then git pull upstream master
+	- merge the master branch into the change branch, by git checkout change_branch, then git merge master change_branch, and resolve any merge conflicts (add and commit)
+	- push change branch to fork, push origin change_branch. this automatically updates pull request
+	- to update master on fork, git checkout master, git push origin master
